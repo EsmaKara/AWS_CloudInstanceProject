@@ -21,6 +21,9 @@ Uygulamamı dağıtmak için bulut sağlayıcısı olarak AWS (Amazon Web Servic
 **Web Sunucusu:** Nginx
 
 
+**Uygulama Mimarisi:** Sistemin mimarisi, Kaynak Kod Yönetimi ve Kullanıcı Erişimi olmak üzere iki temel akıştan oluşmaktadır. Geliştirilen React projesinin kaynak kodları GitHub üzerinde barındırılmakta ve sunucuya buradan çekilerek (pull) derlenmektedir. Çalışma zamanında ise; tarayıcıdan gelen son kullanıcı istekleri, AWS ağ geçidi üzerinden geçerek yapılandırdığım Güvenlik Grubu (Security Group) kurallarına tabi tutulmakta ve EC2 sunucumdaki Nginx servisine iletilmektedir. Nginx, bu istekleri karşılayarak derlenmiş statik dosyaları kullanıcıya sunar.
+
+
 ## 3. Uygulamanın Bulut Platformuna Taşınması (Dağıtım Adımları)
 Yerelden GitHub ortamına taşıdığım uygulamamı bulutta dağıtmak amacıyla şu adımları izledim:
 
