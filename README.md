@@ -5,7 +5,7 @@ Daha kapsamlı bir rapora erişmek için:
 
 
 ## 1. Uygulama Seçimi
-Ödev kapsamında, hem modern web teknolojilerini kullanmak hem de kendi çalışmalarımı sunabileceğim bir platform oluşturmak amacıyla Kişisel Portfolyo uygulamamı dağıtmaya karar verdim. Bu uygulama, React ve TypeScript kullanılarak geliştirdiğim statik bir web projesidir.
+Ödev kapsamında, kişisel yetkinliklerimi sergilemek amacıyla React ve TypeScript kullanılarak geliştirilmiş statik bir "Kişisel Portfolyo" web uygulamamı dağıtmaya karar verdim. Böylece, staj veya iş görüşmelerinde teknik becerilerimi kanıtlamak için sunabileceğim, her yerden ve her an erişilebilir çevrimiçi bir referans noktasına sahip olmayı hedefledim.
 
 ## 2. Bulut Platformu ve Mimari
 Uygulamamı dağıtmak için bulut sağlayıcısı olarak AWS (Amazon Web Services) platformunu seçtim. Bu seçimi yaparken sektördeki yaygın kullanımı ve geniş dokümantasyon desteğini göz önünde bulundurdum. Ayrıca maliyet oluşturmaması adına, ödev yönergesinde belirtildiği gibi sağlayıcının ücretsiz planı (Free Tier) kapsamındaki kaynakları kullandım.
@@ -14,7 +14,7 @@ Uygulamamı dağıtmak için bulut sağlayıcısı olarak AWS (Amazon Web Servic
 
 Servis: AWS EC2 (Elastic Compute Cloud)
 
-Sanal Makine Tipi: t2.micro (veya t3.micro)
+Sanal Makine Tipi: t3.micro
 
 İşletim Sistemi: Ubuntu Server 24.04 LTS
 
@@ -22,14 +22,14 @@ Web Sunucusu: Nginx
 
 
 ## 3. Uygulamanın Bulut Platformuna Taşınması (Dağıtım Adımları)
-Yerel ortamımdaki projeyi buluta taşımak için şu adımları izledim:
+Yerelden GitHub ortamına taşıdığım uygulamamı bulutta dağıtmak amacıyla şu adımları izledim:
 
 
 Sanal Makine Oluşturma: AWS Konsolu üzerinden Ubuntu işletim sistemine sahip bir EC2 instance başlattım ve SSH bağlantısı için gerekli anahtar çiftini (.pem dosyası) oluşturdum.
 
-Bağlantı ve Kurulum: Terminal aracılığıyla sunucuya SSH bağlantısı sağladım. Projemi çalıştırmak için gerekli olan Git, Node.js ve NPM paketlerini sunucuya kurdum.
+Bağlantı ve Kurulum: Terminal aracılığıyla sunucuya SSH bağlantısı sağladım. Uygulamamı çalıştırmak için gerekli olan Git, Node.js ve NPM paketlerini sunucuya kurdum.
 
-Kodun Taşınması: Projemi GitHub üzerindeki repomdan git clone komutuyla sunucuya çektim.
+Kodun Taşınması: Uygulamamı GitHub üzerindeki repomdan git clone komutuyla sunucuya çektim.
 
 Derleme (Build): React kodlarını tarayıcının anlayabileceği statik dosyalara dönüştürmek için sunucu içinde npm run build komutunu çalıştırdım.
 
@@ -40,7 +40,9 @@ Proje sürecinde karşılaştığım teknik sorunlar ve ürettiğim çözümler 
 
 Node.js Sürüm Uyuşmazlığı: Projemi derlemeye çalışırken sunucudaki varsayılan Node.js sürümünün (v18), kullandığım Vite kütüphanesi (v20+) için yetersiz kaldığını gördüm. Resmi NodeSource deposunu ekleyerek Node.js sürümünü v22'ye yükselttim ve sorunu çözdüm.
 
-Erişim Engeli (Timeout): Sunucuyu başlattıktan sonra tarayıcıdan IP adresine girmeye çalıştığımda bağlantı zaman aşımına uğradı. AWS Güvenlik Grubu (Security Group) ayarlarını kontrol ettiğimde HTTP (80) portunun kapalı olduğunu fark ettim. İlgili portu tüm trafiğe (0.0.0.0/0) açarak sorunu giderdim.
+Derleme (Build) Hataları ve Kod Yönetimi: Uygulamanın sunucu üzerindeki derleme aşamasında (build), kod kaynaklı bazı hatalar nedeniyle işlemin başarısız olduğunu tespit ettim. Sunucu üzerinde kod düzenlemenin verimsiz olması nedeniyle, ilgili hataları yerel geliştirme ortamımda düzelttim ve değişiklikleri GitHub reposuna gönderdim (push). Ardından sunucu terminali üzerinden git pull komutuyla güncellemeleri çekip projeyi yeniden derleyerek sorunu giderdim. 
+
+Erişim Engeli (Timeout): Sunucuyu başlattıktan sonra tarayıcıdan IP adresine girmeye çalıştığımda bağlantı zaman aşımına uğradı ve "Bu siteye ulaşılamıyor" hatası aldım. AWS Güvenlik Grubu (Security Group) ayarlarını kontrol ettiğimde HTTP (80) portunun kapalı olduğunu, böyle bir kuralın bulunmadığını fark ettim. Yeni bir kural ekleyerek, ilgili portu tüm trafiğe (0.0.0.0/0) açarak sorunu giderdim.
 
 500 Internal Server Error: Siteye ulaştığımda sunucu hatası aldım. Log kayıtlarını incelediğimde Nginx'in, proje dosyalarımın bulunduğu /home/ubuntu dizinine erişim izni olmadığını tespit ettim. chmod 755 komutlarını kullanarak gerekli klasör izinlerini düzenledim ve uygulama başarıyla yayına alındı.
 
