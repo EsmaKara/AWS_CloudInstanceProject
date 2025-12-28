@@ -2,6 +2,7 @@
 Bu repo Bulut Bilişim dersi kapsamında gerçekleştirmiş olduğum projenin dokümantasyonunu içermektedir. Proje kapsamında dağıtıma sunulan uygulamaya da profilimdeki Portfolio_App reposundan ulaşılabilir.
 
 Daha kapsamlı bir rapora erişmek için:
+[AWS_Projesi_Raporu.pdf](https://github.com/user-attachments/files/24361415/AWS_Projesi_Raporu.pdf)
 
 
 ## 1. Uygulama Seçimi
