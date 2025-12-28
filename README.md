@@ -2,11 +2,12 @@
 Bu repo Bulut Bilişim dersi kapsamında gerçekleştirmiş olduğum projenin dokümantasyonunu içermektedir. Proje kapsamında dağıtıma sunulan uygulamaya da profilimdeki Portfolio_App reposundan ulaşılabilir.
 
 Daha kapsamlı bir rapora erişmek için:
-[AWS_Projesi_Raporu.pdf](https://github.com/user-attachments/files/24361415/AWS_Projesi_Raporu.pdf)
+[AWS_Projesi_Raporu.pdf](https://github.com/user-attachments/files/24361892/AWS_Projesi_Raporu.pdf)
 
 
 ## 1. Uygulama Seçimi
 Ödev kapsamında, kişisel yetkinliklerimi sergilemek amacıyla React ve TypeScript kullanılarak geliştirilmiş statik bir "Kişisel Portfolyo" web uygulamamı dağıtmaya karar verdim. Böylece, staj veya iş görüşmelerinde teknik becerilerimi kanıtlamak için sunabileceğim, her yerden ve her an erişilebilir çevrimiçi bir referans noktasına sahip olmayı hedefledim.
+Repo:   https://github.com/EsmaKara/Portfolio_App
 
 ## 2. Bulut Platformu ve Mimari
 Uygulamamı dağıtmak için bulut sağlayıcısı olarak AWS (Amazon Web Services) platformunu seçtim. Bu seçimi yaparken sektördeki yaygın kullanımı ve geniş dokümantasyon desteğini göz önünde bulundurdum. Ayrıca maliyet oluşturmaması adına, ödev yönergesinde belirtildiği gibi sağlayıcının ücretsiz planı (Free Tier) kapsamındaki kaynakları kullandım.
@@ -54,4 +55,4 @@ Proje sürecinde karşılaştığım teknik sorunlar ve ürettiğim çözümler 
 Bu ödev ile birlikte, yerel ortamda geliştirdiğim bir yazılımı bulut tabanlı bir altyapıya (IaaS) taşıma sürecini uçtan uca deneyimledim. Sanal sunucu yönetimi, Linux komut satırı yetkinliği, web sunucusu (Nginx) yapılandırması ve ağ güvenliği konularında pratik bilgiler edindim.
 
 
-**Proje Anlatımı Video Linki:**  
+**Proje Anlatımı YouTube Video Linki:**  https://youtu.be/6CKWeQqLcCU
